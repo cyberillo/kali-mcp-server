@@ -91,27 +91,27 @@ The server exposes 21 specialized tools categorized by their operational phase.
 
 | Category | Tool Name | Description & Parameters |
 | --- | --- | --- |
-| **🕵️ Recon** | `whois_lookup` | Performs a WHOIS lookup. **Params:** `domain` (str). |
-| **🕵️ Recon** | `dnsenum_scan` | Enumerates DNS records. **Params:** `domain` (str). |
-| **🕵️ Recon** | `whatweb_scan` | Identifies CMS and headers. **Params:** `target_url` (str). |
-| **🕵️ Recon** | `amass_enum` | Passive subdomain enumeration. **Params:** `domain` (str). |
-| **🕵️ Recon** | `netdiscover_scan` | Finds active hosts. **Params:** `ip_range` (str). |
-| **🔎 Scanning** | `nmap_scan` | Network discovery and port scanning. **Params:** `target` (str), `flags` (str, default: `-sV -F`). |
-| **🔎 Scanning** | `enum4linux_scan` | Enumerates Windows/Samba systems. **Params:** `target_ip` (str). |
-| **🔎 Scanning** | `smbclient_list` | Lists SMB shares. **Params:** `target_ip` (str), `user` (str), `password` (str). |
-| **🌐Web Sec** | `nikto_scan` | Web vulnerability scan. **Params:** `target_url` (str). |
-| **🌐Web Sec** | `gobuster_dir` | Directory brute-forcing. **Params:** `target_url` (str), `wordlist` (str). |
-| **🌐Web Sec** | `dirb_scan` | Web content scanning. **Params:** `target_url` (str), `wordlist` (str). |
-| **🌐Web Sec** | `ffuf_scan` | Fast web directory fuzzing. **Params:** `target_url` (str), `wordlist` (str). |
-| **🌐Web Sec** | `wfuzz_scan` | Web parameter/directory fuzzing. **Params:** `target_url` (str), `wordlist` (str). |
-| **🌐Web Sec** | `sqlmap_scan` | SQL injection detection/exploitation. **Params:** `target_url` (str), `params` (str). |
-| **🌐Web Sec** | `wpscan_enum` | WordPress vulnerability scanner. **Params:** `target_url` (str). |
-| **🔐 Cracking** | `hydra_bruteforce` | Brute force login credentials. **Params:** `target` (str), `service` (str), `user` (str), `wordlist` (str). |
-| **🔐 Cracking** | `john_crack` | Cracks password hashes. **Params:** `hash_file` (str), `wordlist` (str). |
-| **🔐 Cracking** | `hashcat_crack` | Resource-intensive hash cracking. **Params:** `hash_file` (str), `hash_type` (str), `wordlist` (str). |
-| **💥 Exploit** | `searchsploit_query` | Searches Exploit Database. **Params:** `query` (str). |
-| **💥 Exploit** | `tcpdump_sniff` | Captures network packets. **Params:** `interface` (str), `packet_count` (str). |
-| **💥 Exploit** | `metasploit_exploit` | Executes an MSF module. **Params:** `module` (str), `options` (str). |
+| **Recon** | `whois_lookup` | Performs a WHOIS lookup. **Params:** `domain` (str). |
+| **Recon** | `dnsenum_scan` | Enumerates DNS records. **Params:** `domain` (str). |
+| **Recon** | `whatweb_scan` | Identifies CMS and headers. **Params:** `target_url` (str). |
+| **Recon** | `amass_enum` | Passive subdomain enumeration. **Params:** `domain` (str). |
+| **Recon** | `netdiscover_scan` | Finds active hosts. **Params:** `ip_range` (str). |
+| **Scanning** | `nmap_scan` | Network discovery and port scanning. **Params:** `target` (str), `flags` (str, default: `-sV -F`). |
+| **Scanning** | `enum4linux_scan` | Enumerates Windows/Samba systems. **Params:** `target_ip` (str). |
+| **Scanning** | `smbclient_list` | Lists SMB shares. **Params:** `target_ip` (str), `user` (str), `password` (str). |
+| **Web Sec** | `nikto_scan` | Web vulnerability scan. **Params:** `target_url` (str). |
+| **Web Sec** | `gobuster_dir` | Directory brute-forcing. **Params:** `target_url` (str), `wordlist` (str). |
+| **Web Sec** | `dirb_scan` | Web content scanning. **Params:** `target_url` (str), `wordlist` (str). |
+| **Web Sec** | `ffuf_scan` | Fast web directory fuzzing. **Params:** `target_url` (str), `wordlist` (str). |
+| **Web Sec** | `wfuzz_scan` | Web parameter/directory fuzzing. **Params:** `target_url` (str), `wordlist` (str). |
+| **Web Sec** | `sqlmap_scan` | SQL injection detection/exploitation. **Params:** `target_url` (str), `params` (str). |
+| **Web Sec** | `wpscan_enum` | WordPress vulnerability scanner. **Params:** `target_url` (str). |
+| **Cracking** | `hydra_bruteforce` | Brute force login credentials. **Params:** `target` (str), `service` (str), `user` (str), `wordlist` (str). |
+| **Cracking** | `john_crack` | Cracks password hashes. **Params:** `hash_file` (str), `wordlist` (str). |
+| **Cracking** | `hashcat_crack` | Resource-intensive hash cracking. **Params:** `hash_file` (str), `hash_type` (str), `wordlist` (str). |
+| **Exploit** | `searchsploit_query` | Searches Exploit Database. **Params:** `query` (str). |
+| **Exploit** | `tcpdump_sniff` | Captures network packets. **Params:** `interface` (str), `packet_count` (str). |
+| **Exploit** | `metasploit_exploit` | Executes an MSF module. **Params:** `module` (str), `options` (str). |
 
 > **Pro-Tip for LLMs:** When asking the LLM to run `metasploit_exploit`, format options carefully as comma-separated `KEY=VALUE` pairs (e.g., `RHOSTS=192.168.1.5, LHOST=10.0.0.2`).
 
