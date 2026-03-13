@@ -57,14 +57,14 @@ cd kali-mcp-server
 ```
 
 
-2. **🏗️ Build the image**
+2. **🏗️ Build the image.**
 
 ```bash
 docker build -t kali-mcp-server .
 
 ```
 
-3. **🏃 Run the container**
+3. **🏃 Run the container.**
 
 To run the container interactively using the `stdio` transport required by MCP clients:
 
@@ -87,7 +87,7 @@ cd kali-mcp-server
 
 ```
 
-2.  **🐍 Set up a Python Virtual Environment:**
+2.  **🐍 Set up a Python Virtual Environment.**
 
 ```bash
 python3 -m venv venv
@@ -95,16 +95,16 @@ source venv/bin/activate
 
 ```
 
-3.  **Install the MCP SDK:**
+3.  **Install the MCP SDK.**
 
 ```bash
 pip install mcp
 
 ```
 
-4.  **Ensure all Kali tools are installed:**  
+4.  **Ensure all Kali tools are installed.**  
     Ensure tools like `nmap`, `gobuster`, `sqlmap`, and `msfconsole` are available in your system `PATH`.
-5.  **Run the server in debug mode locally:**  
+5.  **Run the server in debug mode locally.**  
     You can test the Python script directly using standard input/output.
 
 ```bash
