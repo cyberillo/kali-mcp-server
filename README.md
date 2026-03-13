@@ -1,4 +1,4 @@
-<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/8a89d58d-519b-42e1-9694-985330849036" />
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/8a89d58d-519b-42e1-9694-985330849036" class="jop-noMdConv">
 
 # 🐉 Kali Linux MCP Server
 
@@ -10,35 +10,40 @@ By exposing these tools as MCP resources, AI agents can autonomously perform WHO
 
 ## Key Features
 
-*   **🎯 Comprehensive Offensive Security Toolkit**: Natively exposes distinct categories of penetration testing tools to your LLM. The server logically categorizes capabilities, including dedicated modules for **Password Cracking & Brute Forcing**, as well as **Exploitation & Sniffing**.
-*   **📦 Automated & Isolated Containerization**: The included Docker configuration ensures a frictionless, reproducible setup. It utilizes the `DEBIAN_FRONTEND=noninteractive` environment variable to suppress manual prompts during Debian package installations, guaranteeing a fully automated build process.
-*   **Native MCP SDK Integration**: Built robustly on top of the official `mcp` Python SDK. The environment is flexible, allowing the SDK to be installed globally within the isolated container (`--break-system-packages`) or via a localized Python virtual environment.
-*   **⚡ Standardized `stdio` Transport**: Utilizes direct standard input/output for JSON-RPC communication, bypassing complex network configurations and ensuring out-of-the-box compatibility with AI IDEs (like Cursor and VS Code) and desktop clients (like Claude Desktop). 
-
+- **🎯 Comprehensive Offensive Security Toolkit**: Natively exposes distinct categories of penetration testing tools to your LLM. The server logically categorizes capabilities, including dedicated modules for **Password Cracking & Brute Forcing**, as well as **Exploitation & Sniffing**.
+- **📦 Automated & Isolated Containerization**: The included Docker configuration ensures a frictionless, reproducible setup. It utilizes the `DEBIAN_FRONTEND=noninteractive` environment variable to suppress manual prompts during Debian package installations, guaranteeing a fully automated build process.
+- **Native MCP SDK Integration**: Built robustly on top of the official `mcp` Python SDK. The environment is flexible, allowing the SDK to be installed globally within the isolated container (`--break-system-packages`) or via a localized Python virtual environment.
+- **⚡ Standardized `stdio` Transport**: Utilizes direct standard input/output for JSON-RPC communication, bypassing complex network configurations and ensuring out-of-the-box compatibility with AI IDEs (like Cursor and VS Code) and desktop clients (like Claude Desktop).
 
 ## Prerequisites
+
 The required dependencies vary entirely based on your chosen execution method.
 
 ### Option A: 🐳 Docker Execution (Recommended)
-By using Docker, the server runs in an isolated container that automatically provisions Python 3, `pip`, and an extensive suite of Kali Linux tools (including `nmap`, `sqlmap`, `tcpdump`, and `metasploit-framework`). 
-*   **Docker Engine:** Must be installed and running. This method works perfectly on **Windows**, **macOS**, and **Linux** without requiring any local security tools.
+
+By using Docker, the server runs in an isolated container that automatically provisions Python 3, `pip`, and an extensive suite of Kali Linux tools (including `nmap`, `sqlmap`, `tcpdump`, and `metasploit-framework`).
+
+- **Docker Engine:** Must be installed and running. This method works perfectly on **Windows**, **macOS**, and **Linux** without requiring any local security tools.
 
 ### Option B: 🐍 Local Python Execution
-If you choose to run the script directly on your host machine instead of using Docker, your host must have the tools available natively.
-*   **Operating System:** Kali Linux (recommended) or another Linux distribution with the required penetration testing tools installed and in your system's `PATH`.
-*   **Python:** Python 3.10 or higher.
-*   **Dependencies:** The `mcp` Python SDK (`pip install mcp`).
-*   **Permissions:** Some exposed tools, such as `tcpdump` for packet sniffing, explicitly require root privileges to execute natively.
 
-## How to Use
+If you choose to run the script directly on your host machine instead of using Docker, your host must have the tools available natively.
+
+- **Operating System:** Kali Linux (recommended) or another Linux distribution with the required penetration testing tools installed and in your system's `PATH`.
+- **Python:** Python 3.10 or higher.
+- **Dependencies:** The `mcp` Python SDK (`pip install mcp`).
+- **Permissions:** Some exposed tools, such as `tcpdump` for packet sniffing, explicitly require root privileges to execute natively.
+
+## How to Set Up
 
 ### 🐳 Option A: Docker Implementation
 
 Because this server relies on dozens of specific binary tools, packaging it via Docker is the "Gold Standard" approach.
 
-***
+* * *
 
 **Dockerfile Breakdown**
+
 - **Base Image:** The server is built on top of the official `kalilinux/kali-rolling` base image.
     
 - **Toolchain Installation:** It updates the system and installs essential tools including `nmap`, `sqlmap`, `metasploit-framework`, `gobuster`, `hydra`, and `john`.
@@ -47,7 +52,9 @@ Because this server relies on dozens of specific binary tools, packaging it via 
     
 - **Python Environment:** It utilizes the PEP 668 `--break-system-packages` flag to install the `mcp` Python SDK globally within the isolated container.
     
-***
+
+* * *
+
 1.  **Clone the repository and navigate to the directory.**
 
 ```bash
@@ -56,15 +63,14 @@ cd kali-mcp-server
 
 ```
 
-
-2. **🏗️ Build the image.**
+2.  **🏗️ Build the image**
 
 ```bash
 docker build -t kali-mcp-server .
 
 ```
 
-3. **🏃 Run the container.**
+3.  **🏃 Run the container**
 
 To run the container interactively using the `stdio` transport required by MCP clients:
 
@@ -87,7 +93,7 @@ cd kali-mcp-server
 
 ```
 
-2.  **🐍 Set up a Python Virtual Environment.**
+2.  **🐍 Set up a Python Virtual Environment:**
 
 ```bash
 python3 -m venv venv
@@ -95,16 +101,16 @@ source venv/bin/activate
 
 ```
 
-3.  **Install the MCP SDK.**
+3.  **Install the MCP SDK:**
 
 ```bash
 pip install mcp
 
 ```
 
-4.  **Ensure all Kali tools are installed.**  
+4.  **Ensure all Kali tools are installed:**  
     Ensure tools like `nmap`, `gobuster`, `sqlmap`, and `msfconsole` are available in your system `PATH`.
-5.  **Run the server in debug mode locally.**  
+5.  **Run the server in debug mode locally:**  
     You can test the Python script directly using standard input/output.
 
 ```bash
@@ -185,7 +191,7 @@ Add the following to your `claude_desktop_config.json` file (usually located at 
 
 ### 2\. GitHub Copilot (VS Code)
 
-1.  If it does not exist, add a directory `.vscode` in your workspace. 
+1.  If it does not exist, add a directory `.vscode` in your workspace.
 2.  Add the MCP server by updating `.vscode/mcp.json` as follows.
 
 ```json
