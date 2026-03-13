@@ -1,4 +1,6 @@
-# 🐉 Kali Linux MCP Server
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/8a89d58d-519b-42e1-9694-985330849036" />
+
+# 🐉 Kali MCP Server
 
 ## 📖 Project Overview
 
