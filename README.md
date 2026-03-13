@@ -40,6 +40,24 @@ If you choose to run the script directly on your host machine instead of using D
 
 Because this server relies on dozens of specific binary tools, packaging it via Docker is the "Gold Standard" approach.
 
+The fastest way to get started is to pull the official image from Docker Hub.
+
+```bash
+docker pull cyberillo/kali-mcp-server:latest
+
+```
+
+To run the container interactively using the `stdio` transport required by MCP clients:
+
+```bash
+docker run -i --rm kali-mcp-server
+
+```
+
+*(Note: Some tools like `tcpdump` or `netdiscover` require elevated privileges. If you explicitly need these, you may need to append `--privileged` or specific `--cap-add` flags to your `docker run` command, though this is heavily discouraged for general use).*
+
+Alternatively, build the docker image yourself by following the below steps.
+
 * * *
 
 **Dockerfile Breakdown**
