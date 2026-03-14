@@ -172,6 +172,8 @@ The server exposes 21 specialized tools categorized by their operational phase.
 
 Add the following to your `claude_desktop_config.json` file (usually located at `~/Library/Application Support/Claude/claude_desktop_config.json` on Mac or `%APPDATA%\Claude\claude_desktop_config.json` on Windows).
 
+Go to **File** > **Settings** > **Developer** > **Edit Config** if you don't find it in the above paths.
+
 **Using Docker (Recommended):**
 
 ```json
