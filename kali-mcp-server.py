@@ -3,6 +3,9 @@
 
 import subprocess
 import shlex
+import tempfile
+import os
+
 from mcp.server.fastmcp import FastMCP
 
 # Initialize FastMCP Server
@@ -123,20 +126,39 @@ def wpscan_enum(target_url: str) -> str:
 # 4. PASSWORD CRACKING & BRUTE FORCING
 # ==========================================
 
-@mcp.tool()
-def hydra_bruteforce(target: str, service: str, user: str, wordlist: str = "/usr/share/wordlists/rockyou.txt") -> str:
-    """Run THC-Hydra to brute force login credentials for a specific service (e.g., ssh, ftp)."""
-    return run_cmd(["hydra", "-l", user, "-P", wordlist, target, service], timeout=900)
+# ==========================================
+# 4. PASSWORD CRACKING & BRUTE FORCING
+# ==========================================
 
-@mcp.tool()
-def john_crack(hash_file: str, wordlist: str = "/usr/share/wordlists/rockyou.txt") -> str:
-    """Run John the Ripper to crack a file containing password hashes."""
-    return run_cmd(["john", "--wordlist=" + wordlist, hash_file], timeout=900)
+@mcp.tool() 
+def hydra_bruteforce(target: str, service: str, user: str, wordlist: str = "/usr/share/wordlists/rockyou.txt") -> str: 
+    """Run THC-Hydra to brute force login credentials for a specific service (e.g., ssh, ftp).""" 
+    return run_cmd(["hydra", "-l", user, "-P", wordlist, target, service], timeout=900) 
 
-@mcp.tool()
-def hashcat_crack(hash_file: str, hash_type: str = "0", wordlist: str = "/usr/share/wordlists/rockyou.txt") -> str:
-    """Run Hashcat to crack hashes. Note: Hashcat can be very resource-intensive."""
-    return run_cmd(["hashcat", "-m", hash_type, "-a", "0", hash_file, wordlist, "--potfile-disable"], timeout=900)
+
+@mcp.tool() 
+def john_crack(hash_string: str, wordlist: str = "/usr/share/wordlists/rockyou.txt") -> str: 
+    """Run John the Ripper to crack an inline password hash string.""" 
+    # John requires a file, so we write the inline hash to a temporary file
+    with tempfile.NamedTemporaryFile(mode='w', delete=False) as temp_hash_file:
+        temp_hash_file.write(hash_string)
+        temp_path = temp_hash_file.name
+
+    try:
+        # Run John against the temporary file
+        result = run_cmd(["john", "--wordlist=" + wordlist, temp_path], timeout=900)
+        return result
+    finally:
+        # Ensure the temporary file is deleted after execution
+        if os.path.exists(temp_path):
+            os.remove(temp_path)
+
+
+@mcp.tool() 
+def hashcat_crack(hash_string: str, hash_type: str = "0", wordlist: str = "/usr/share/wordlists/rockyou.txt") -> str: 
+    """Run Hashcat to crack an inline hash string. Note: Hashcat can be very resource-intensive.""" 
+    # Hashcat can accept the hash directly in the command line arguments
+    return run_cmd(["hashcat", "-m", hash_type, "-a", "0", hash_string, wordlist, "--potfile-disable"], timeout=900)
 
 # ==========================================
 # 5. EXPLOITATION & SNIFFING
