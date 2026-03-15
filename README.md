@@ -15,6 +15,11 @@ By exposing these tools as MCP resources, AI agents can autonomously perform WHO
 - **Native MCP SDK Integration**: Built robustly on top of the official `mcp` Python SDK. The environment is flexible, allowing the SDK to be installed globally within the isolated container (`--break-system-packages`) or via a localized Python virtual environment.
 - **⚡ Standardized `stdio` Transport**: Utilizes direct standard input/output for JSON-RPC communication, bypassing complex network configurations and ensuring out-of-the-box compatibility with AI IDEs (like Cursor and VS Code) and desktop clients (like Claude Desktop).
 
+## Demo
+### Hash Crack
+[![Cracking Hashes with Claude Desktop & Kali MCP
+](https://img.youtube.com/vi/Q_qNhg9QaX0/0.jpg)](https://www.youtube.com/watch?v=Q_qNhg9QaX0)
+
 ## Prerequisites
 
 The required dependencies vary entirely based on your chosen execution method.
