@@ -1,4 +1,4 @@
-<img alt="image" src="https://github.com/cyberillo/kali-mcp-server/blob/main/resources/kali-mcp-server-banner.png">
+<img alt="image" src="https://raw.githubusercontent.com/cyberillo/kali-mcp-server/refs/heads/main/resources/kali-mcp-server-banner.png">
 
 # 🐉 Kali Linux MCP Server
 
@@ -18,11 +18,11 @@ By exposing these tools as MCP resources, AI agents can autonomously perform WHO
 ## Demo
 ### Hash Crack
 [![Cracking Hashes with Claude Desktop & Kali MCP
-](https://github.com/cyberillo/kali-mcp-server/blob/main/resources/hash_crack_demo_thumbnail.png)](https://www.youtube.com/watch?v=Q_qNhg9QaX0)
+](https://raw.githubusercontent.com/cyberillo/kali-mcp-server/refs/heads/main/resources/hash_crack_demo_thumbnail.png)](https://www.youtube.com/watch?v=Q_qNhg9QaX0)
 
 ### Vulnerability Scan
 [![ Autonomous Vulnerability Scanning with GitHub Copilot & Kali MCP Server
-](https://github.com/cyberillo/kali-mcp-server/blob/main/resources/vulnerability-scan-demo-thumbnail.png)](https://www.youtube.com/watch?v=kSBlrEDb4P0)
+](https://raw.githubusercontent.com/cyberillo/kali-mcp-server/refs/heads/main/resources/vulnerability-scan-demo-thumbnail.png)](https://www.youtube.com/watch?v=kSBlrEDb4P0)
 
 ## Prerequisites
 
