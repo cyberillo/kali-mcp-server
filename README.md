@@ -18,7 +18,7 @@ By exposing these tools as MCP resources, AI agents can autonomously perform WHO
 ## Demo
 ### Hash Crack
 [![Cracking Hashes with Claude Desktop & Kali MCP
-](https://img.youtube.com/vi/Q_qNhg9QaX0/0.jpg)](https://www.youtube.com/watch?v=Q_qNhg9QaX0)
+](https://github.com/cyberillo/kali-mcp-server/blob/main/resources/hash_crack_demo_thumbnail.png)](https://www.youtube.com/watch?v=Q_qNhg9QaX0)
 
 ## Prerequisites
 
