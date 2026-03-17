@@ -17,8 +17,7 @@ By exposing these tools as MCP resources, AI agents can autonomously perform WHO
 
 ## Demo
 ### Hash Crack
-[![Cracking Hashes with Claude Desktop & Kali MCP
-](https://raw.githubusercontent.com/cyberillo/kali-mcp-server/refs/heads/main/resources/hash_crack_demo_thumbnail.png)](https://www.youtube.com/watch?v=Q_qNhg9QaX0)
+<img alt="image" src="https://raw.githubusercontent.com/cyberillo/kali-mcp-server/refs/heads/main/resources/claude-hash-crack-demo.gif"> 
 
 ### Vulnerability Scan
 [![ Autonomous Vulnerability Scanning with GitHub Copilot & Kali MCP Server
